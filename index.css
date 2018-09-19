@@ -1,0 +1,43 @@
+body {
+    background-color: black !important;
+}
+.game-img {
+    max-height: 200px;
+    max-width: 100%;
+}
+.game-wrap {
+    padding: 5px !important;
+}
+.searchbar {
+    max-width: 600px;
+    margin: 35px 0;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.middle {
+    text-align: center;
+}
+.menu-link {
+    display: inline-block;
+    padding: 15px;
+}
+.header {
+    background-color:  #1b1a1a;;
+}
+h1, h2, h3, h4 {
+    color: white !important;
+}
+.sidebar {
+    padding-left: 55px !important;
+}
+
+/* :Override bootstrap */
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    padding: 0 !important;
+}
