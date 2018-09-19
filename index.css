@@ -1,43 +1,25 @@
 body {
-    background-color: black !important;
-}
-.game-img {
-    max-height: 200px;
-    max-width: 100%;
-}
-.game-wrap {
-    padding: 5px !important;
+    font-family: 'Raleway', sans-serif !important;
 }
 .searchbar {
-    max-width: 600px;
+    max-width: 550px;
     margin: 35px 0;
 }
-.left {
-    text-align: left;
-}
-.right {
-    text-align: right;
-}
-.middle {
-    text-align: center;
-}
-.menu-link {
-    display: inline-block;
-    padding: 15px;
+.game-img {
+    padding: 0 !important;
 }
 .header {
-    background-color:  #1b1a1a;;
+    width: 100%;
+    background-color: black;
+    height: 70px;
 }
-h1, h2, h3, h4 {
-    color: white !important;
+.open {
+    max-height: auto;
+    padding: 20px;
+    overflow: hidden;
 }
-.sidebar {
-    padding-left: 55px !important;
-}
-
-/* :Override bootstrap */
-.row {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-    padding: 0 !important;
+.closed {
+    max-height: 50px;
+    padding: 20px;
+    overflow: hidden;
 }

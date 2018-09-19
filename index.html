@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>        
+  <!-- Main -->
+    <div id="app">
+    <div class="header"></div>
+    <div class="row">  
+      <!-- Sidebar -->
+      <div class="col-md-3">
+
+        <div v-bind:class="[isActive ? 'open' : 'closed']">
+          <button class="dropdown" @click="toggleClass()">Genres</button>
+        <ul>
+            <li>Top games</li>
+            <li>Action</li>
+            <li>Adventure</li>
+            <li>Drama</li>
+            <li>Indie</li>
+            <li>Mystery</li>
+            <li>RPG</li>
+            <li>Simulation</li>
+            <li>Sports</li>
+        </ul>
+        </div>
+        <div v-bind:class="[isActive ? 'open' : 'closed']">
+        <button class="dropdown" @click="toggleClass()">Type</button>
+        <ul>
+              <li>All</li>
+              <li>Offers</li>
+              <li>Free</li>
+        </ul>
+        </div>
+      </div>
+      <!-- Game grid -->
+      <div class="col-md-9">
+      <input type="text" v-model="searchvalue" placeholder="Search" class="form-control searchbar" />
+        <img 
+            v-for="game in filteredGames" 
+            :src="game.Image" 
+            :value="game.title" 
+            class="col-md-2 col-sm-3 col-4 game-img"
+        />
+    </div>  
+    </div> 
+    </div>   
+</body>
+</html>
+
+<script>
+  var app = new Vue({
+  el: '#app',
+  data: {
+    gamelist: [],
+    searchvalue: '',
+    isActive: false
+  },
+  created() {
+    this.loadQuote();
+  },
+  methods: {
+    loadQuote() {
+      this.gamelist = []
+      var vm = this
+      // Get the JSON data axios
+      axios.get('http://localhost:3000/data.php')
+      .then(function (response) {
+        vm.gamelist = response.data.games
+      })
+      .catch(function (error) {
+        vm.gamelist = 'an error has occured' + error
+      })
+    },
+    // Toggle menus
+    toggleClass: function(event){
+       // Check value
+       if(this.isActive){
+         this.isActive = false;
+       }else{
+         this.isActive = true;
+       }
+    }
+  },
+  // Search filter
+  computed: {
+    filteredGames(){
+      return this.gamelist.filter((game) => {
+        return game.title.toLowerCase().match(this.searchvalue)
+      })
+    }
+  }
+})
+</script>
