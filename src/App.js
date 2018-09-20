@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import uuid from 'uuid/v4';
 
+import logo from './assets/logo.png'
+import login from './assets/login.png'
+
 import './App.css';
 
 type Game = {
@@ -121,8 +124,23 @@ class App extends Component<null, State> {
     console.log(filteredGameList)
     return (
       <div className="App">
-        <div className="header"></div>
-          <div className="row">  
+        <div className="header row">
+           <div className="col-md-4 col-sm-12 col-12 header-col left">
+           <img src={logo} alt="company-logo" className="header-logo"/>
+           <div className="mobile-login"><h3>Login</h3></div>
+           </div>
+           <div className="header-link-container col-md-4 col-sm-12 col-12 header-col center">
+              <ul className="header-link-wrap">
+                <li className="link-active">Lorem <div className="underline"></div></li>
+                <li>Ipsum</li>
+                <li>Dolor</li>
+              </ul>
+           </div>
+           <div className="login-btn col-md-4 col-sm-6 col-6 header-col right">
+             <h3>Login</h3>
+           </div>
+        </div>
+          <div className="row container-fluid">  
           <div className="col-md-3">
         <div className="open">
           <button className="dropdown filter-type">Genres</button>

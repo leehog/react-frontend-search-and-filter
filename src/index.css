@@ -6,12 +6,28 @@ body {
     margin: 35px 0;
 }
 .game-img {
-    padding: 0 !important;
+    padding: 5px !important;
 }
 .header {
     width: 100%;
     background-color: black;
     height: 70px;
+    margin: 0;
+}
+.header-link-wrap {
+    padding: 0;
+}
+.header-col {
+    padding: 0 !important;
+}
+.header-link-wrap li{
+    list-style: none;
+    display: inline-block;
+    color: white;
+    padding: 20px;
+}
+.login-btn {
+    color: white;
 }
 .open {
     max-height: auto;
@@ -23,3 +39,33 @@ body {
     padding: 20px;
     overflow: hidden;
 }
+.header-logo {
+    max-height: 100%;
+    max-width: 100%;
+}
+.mobile-login {
+    display: none;
+    color: white;
+}
+.mobile-login h3, .login-btn h3 {
+    padding: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+      height: auto;
+    }
+    .header-logo {
+        max-width: 60%;
+    }
+    .left {
+        justify-content: space-between;
+        display: flex;
+    }
+    .mobile-login {
+        display: inline-block;
+    }
+    .login-btn {
+        display: none;
+    }
+  }
