@@ -2,9 +2,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import uuid from 'uuid/v4';
+import { Paginate, evalPageCount } from './Pagination';
 
 import logo from './assets/logo.png'
-import login from './assets/login.png'
+import search from './assets/search.png'
 
 import './App.css';
 
@@ -28,7 +29,11 @@ type State = {
     searchValue: string,
     genre: string,
     type: string
-  }
+  },
+  currentPaginate: number,
+  genreActive: boolean,
+  typeActive: boolean
+
 }
 
 class App extends Component<null, State> {
@@ -40,7 +45,10 @@ class App extends Component<null, State> {
         searchValue: "",
         genre: "All",
         type: "All"
-      }
+      },
+      currentPaginate: 1,
+      genreActive: false,
+      typeActive: false
     }
   }
 
@@ -105,23 +113,39 @@ class App extends Component<null, State> {
     return newArray;
   }
 
+  PaginateButton = (page: number) => {
+    return(
+      <div>
+         <li class="page-item pagination-btn"><a class="page-link" onClick={() => this.handlePageChange(page)}>{page}</a></li>
+      </div>
+    )
+  }
+
   handleSearch = (val: string) => {
-    this.setState({ filter: { ...this.state.filter, searchValue: val } })
+    this.setState({ filter: { ...this.state.filter, searchValue: val }, currentPaginate: 1 })
   }
 
   handleGenreChange = (val: string) => {
-    this.setState({ filter: { ...this.state.filter, genre: val } }, () => console.log(this.state))
+    this.setState({ filter: { ...this.state.filter, genre: val }, currentPaginate: 1  }, () => console.log(this.state))
   }
 
   handleTypeChange = (val: string) => {
-    this.setState({ filter: { ...this.state.filter, type: val } })
+    this.setState({ filter: { ...this.state.filter, type: val }, currentPaginate: 1  })
   }
+  handlePageChange = (page: number) => {
+    this.setState({ currentPaginate: page })
+    console.log(page)
+  }  
 
   render() {
     const { filteredSearch, filterByGenre, filterByType } = this;
-    const { gamelist } = this.state;
+    const { gamelist, currentPaginate } = this.state;
     const filteredGameList = filterByType(filterByGenre(filteredSearch(this.state.gamelist, this.state.filter.searchValue), this.state.filter.genre), this.state.filter.type)
     console.log(filteredGameList)
+    console.log(currentPaginate)
+    const currentItems = Paginate({items: filteredGameList, currentPage: currentPaginate})
+    const pageCount = evalPageCount(filteredGameList);
+    console.log(pageCount)
     return (
       <div className="App">
         <div className="header row">
@@ -140,37 +164,45 @@ class App extends Component<null, State> {
              <h3>Login</h3>
            </div>
         </div>
-          <div className="row container-fluid">  
+          <div className="row no-margin container-fluid">  
           <div className="col-md-3">
-        <div className="open">
-          <button className="dropdown filter-type">Genres</button>
+        <div className={this.state.genreActive ? 'open': 'closed'}>
+          <button className="dropdown filter-type" onClick={() => this.setState({ genreActive: !this.state.genreActive })}>Genres</button>
           <ul className="filters">
-              <li onClick={() => this.handleGenreChange('All')}>All</li>
-              <li onClick={() => this.handleGenreChange('Top Games')}>Top Games</li>
-              <li onClick={() => this.handleGenreChange('Action')}>Action</li>
-              <li onClick={() => this.handleGenreChange('Adventure')}>Adventure</li>
-              <li onClick={() => this.handleGenreChange('Drama')}>Drama</li>
-              <li onClick={() => this.handleGenreChange('Indie')}>Indie</li>
-              <li onClick={() => this.handleGenreChange('Mystery')}>Mystery</li>
-              <li onClick={() => this.handleGenreChange('RPG')}>RPG</li>
-              <li onClick={() => this.handleGenreChange('Simulation')}>Simulation</li>
-              <li onClick={() => this.handleGenreChange('Sports')}>Sports</li>
+              <li onClick={() => this.handleGenreChange('All')} className={this.state.filter.genre === 'All' ? 'active-link' : ''}>All</li>
+              <li onClick={() => this.handleGenreChange('Top Games')} className={this.state.filter.genre === 'Top Games' ? 'active-link' : ''}>Top Games</li>
+              <li onClick={() => this.handleGenreChange('Action')} className={this.state.filter.genre === 'Action' ? 'active-link' : ''}>Action</li>
+              <li onClick={() => this.handleGenreChange('Adventure')} className={this.state.filter.genre === 'Adventure' ? 'active-link' : ''}>Adventure</li>
+              <li onClick={() => this.handleGenreChange('Drama')} className={this.state.filter.genre === 'Drama' ? 'active-link' : ''}>Drama</li>
+              <li onClick={() => this.handleGenreChange('Indie')} className={this.state.filter.genre === 'Indie' ? 'active-link' : ''}>Indie</li>
+              <li onClick={() => this.handleGenreChange('Mystery')} className={this.state.filter.genre === 'Mystery' ? 'active-link' : ''}>Mystery</li>
+              <li onClick={() => this.handleGenreChange('RPG')} className={this.state.filter.genre === 'RPG' ? 'active-link' : ''}>RPG</li>
+              <li onClick={() => this.handleGenreChange('Simulation')} className={this.state.filter.genre === 'Simulation' ? 'active-link' : ''}>Simulation</li>
+              <li onClick={() => this.handleGenreChange('Sports')} className={this.state.filter.genre === 'Sports' ? 'active-link' : ''}>Sports</li>
           </ul>
         </div>
-        <div className="open">
-          <button className="dropdown filter-type">Type</button>
+        <div className={this.state.typeActive ? 'open': 'closed'}>
+          <button className="dropdown filter-type" onClick={() => this.setState({ typeActive: !this.state.typeActive })}>Type</button>
           <ul className="filters">
-            <li onClick={() => this.handleTypeChange('All')}>All</li>
-            <li onClick={() => this.handleTypeChange('Offer')}>Offers</li>
-            <li onClick={() => this.handleTypeChange('Free')}>Free</li>
+            <li onClick={() => this.handleTypeChange('All')} className={this.state.filter.type === 'All' ? 'active-link' : ''}>All</li>
+            <li onClick={() => this.handleTypeChange('Offer')} className={this.state.filter.type === 'Offers' ? 'active-link' : ''}>Offers</li>
+            <li onClick={() => this.handleTypeChange('Free')} className={this.state.filter.type === 'Free' ? 'active-link' : ''}>Free</li>
           </ul>
         </div>
         </div>
         <div className="col-md-9">
+        <div className="search-wrap">
+        <img src={search} alt="search-logo" className="search-logo"/>
         <input placeholder="Search for your favorite game" onChange={(e) => this.handleSearch(e.currentTarget.value)} value={this.state.filter.searchValue} className="form-control searchbar"/>
-          {filteredGameList.length > 0 ? filteredGameList.map((item) => <GameCard key={uuid()} game={item} />) : <h1 className="no-content">No games matched your search..</h1>}
+        </div>  
+          {currentItems.length > 0 ? currentItems.map((item) => <GameCard key={uuid()} game={item} />) : <h1 className="no-content">No games in your category/search..</h1>}
         </div>
         </div>
+        <nav aria-label="pagination-wrap">
+           <ul class="pagination">
+              {pageCount.map((page) => this.PaginateButton(page))}
+         </ul>
+        </nav>
       </div>
     );
   }

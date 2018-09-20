@@ -11,22 +11,37 @@
 .filters li{
     list-style: none;
     color: white;
-    cursor: pointer;
+    cursor: pointer !important;
+}
+.active-link {
+    color: #f35a5a !important;
 }
 .filters li:hover {
-    color: red;
+    color: #f35a5a;
 }
 .dropdown {
     background-color: #ff000000;
     border: none;
     padding: 0;
     font-size: 25px;
+    cursor: pointer;
 }
 .searchbar {
-    background-color: #313131;
+    background-color: #272727;
     border: none;
     border-radius: 0;
     color: white !important;
+    max-width: 550px;
+    height: 100%;
+}
+.search-logo {
+    height: 100%;
+}
+.search-wrap {
+    display: flex;
+    height: 40px;
+    max-width: 550px;
+    margin: 35px 0;
 }
 .form-control:focus {
     background-color: #313131;
@@ -42,6 +57,10 @@
 .no-content {
     color: white;
 }
+.no-margin {
+    margin: 0;
+}
+
 .left {
     text-align: left;
 }
