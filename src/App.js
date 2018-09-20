@@ -6,6 +6,7 @@ import { Paginate, evalPageCount } from './Pagination';
 
 import logo from './assets/logo.png'
 import search from './assets/search.png'
+import downArrow from './assets/arrowdown.png'
 
 import './App.css';
 
@@ -165,9 +166,9 @@ class App extends Component<null, State> {
            </div>
         </div>
           <div className="row no-margin container-fluid">  
-          <div className="col-md-3">
+          <div className="col-md-2">
         <div className={this.state.genreActive ? 'open': 'closed'}>
-          <button className="dropdown filter-type" onClick={() => this.setState({ genreActive: !this.state.genreActive })}>Genres</button>
+          <button className="dropdown filter-type" onClick={() => this.setState({ genreActive: !this.state.genreActive })}>Genres<img src={downArrow} alt="down-arrow" className="down-arrow"/></button>
           <ul className="filters">
               <li onClick={() => this.handleGenreChange('All')} className={this.state.filter.genre === 'All' ? 'active-link' : ''}>All</li>
               <li onClick={() => this.handleGenreChange('Top Games')} className={this.state.filter.genre === 'Top Games' ? 'active-link' : ''}>Top Games</li>
@@ -182,7 +183,7 @@ class App extends Component<null, State> {
           </ul>
         </div>
         <div className={this.state.typeActive ? 'open': 'closed'}>
-          <button className="dropdown filter-type" onClick={() => this.setState({ typeActive: !this.state.typeActive })}>Type</button>
+          <button className="dropdown filter-type" onClick={() => this.setState({ typeActive: !this.state.typeActive })}>Type<img src={downArrow} alt="down-arrow" className="down-arrow"/></button>
           <ul className="filters">
             <li onClick={() => this.handleTypeChange('All')} className={this.state.filter.type === 'All' ? 'active-link' : ''}>All</li>
             <li onClick={() => this.handleTypeChange('Offer')} className={this.state.filter.type === 'Offers' ? 'active-link' : ''}>Offers</li>
@@ -190,7 +191,7 @@ class App extends Component<null, State> {
           </ul>
         </div>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-10">
         <div className="search-wrap">
         <img src={search} alt="search-logo" className="search-logo"/>
         <input placeholder="Search for your favorite game" onChange={(e) => this.handleSearch(e.currentTarget.value)} value={this.state.filter.searchValue} className="form-control searchbar"/>
