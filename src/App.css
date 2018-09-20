@@ -1,0 +1,38 @@
+.App {
+    background-color: black;
+}
+.filter-type {
+    color: red;
+}
+.filters {
+    padding: 0;
+}
+.filters li{
+    list-style: none;
+    color: white;
+    cursor: pointer;
+}
+.filters li:hover {
+    color: red;
+}
+.dropdown {
+    background-color: #ff000000;
+    border: none;
+    padding: 0;
+    font-size: 25px;
+}
+.searchbar {
+    background-color: #313131;
+    border: none;
+    border-radius: 0;
+    color: white !important;
+}
+.form-control:focus {
+    background-color: #313131;
+}
+.header {
+    background-color: #1d1d1d;
+}
+.no-content {
+    color: white;
+}

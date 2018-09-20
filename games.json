@@ -1,108 +1,104 @@
 {
-"games": [
-{
-    "title": "Unknown Fate",  
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/Unknown-Fate-with-Tobii-Eye-Tracking-Packshot.jpg",
-    "Genre": "Adventure,  Indie",
-    "Type": "All"
-},
-
-{
-    "title": "Dying Light: Bad Blood",  
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/dlbb-tobii-eye-tracking-packshot.jpg",
-    "Genre": "Action",
-    "Type": "All, Coming Soon"  
-},
-{
-    "title": "Shadow of the Tomb Raider",  
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/Shadow-of-the-Tomb-Raider-Packshot.jpg",
-    "Genre": "Action, Adventure",
-    "Type": "All, Offer"
-},
-{
-    "title": "Farming Simulator 19",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/farmingsim19-tobii-eye-tracking-Pack.jpg",
-    "Genre": "Simulation",
-    "Type": "All, Coming Soon"  
-},
-{
-    "title": "State of Mind",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/07/SOM-Tobii-Eye-Tracking-PAck.jpg",
-    "Genre": "Adventure",
-    "Type": "All"  
-},
-
-{
-    "title": "F1® 2018",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/F1-2018-Packshot.jpg",
-    "Genre": "Racing, Simulation",
-    "Type": "All, Offer"
-  
-},
-
-{
-    "title": "Mindball Play",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/07/MB-Tobii-Eye-Tracking-pack.jpg",
-    "Genre": "Indie, Racing",
-    "Type": "All"
-},
-  
-{
-    "title": "Q.U.B.E. 2",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/05/qube-2-packshot.jpg",
-    "Genre": "Action, Adventure, Puzzle",
-    "Type": "All"
-},
-{
-    "title": "Bus Simulator 18",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/06/bus-simulator-2018-packshot.jpg",
-    "Genre": "Simulation",
-    "Type": "All"
-  
-},
-{
-    "title": "Overload",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/06/overload-packshot.jpg",
-    "Genre": "Action",
-    "Type": "All, Coming Soon"
-  
-},
-{
-    "title": "Agony",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/05/agony-packshot.jpg",
-    "Genre": "Horror, Survival",
-    "Type": "All"
-},
-{
-    "title": "Final Fantasy XV",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/ffxv-packshot.jpg",
-    "Genre": "Action, Adventure, Open World, RPG",
-    "Type": "All"  
-},
-{
-    "title": "Hitman",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/10/Hitman-packshot.jpg",
-    "Genre": "Action",
-    "Type": "All, Coming Soon"
-  
-},
-{
-    "title": "Solstice Chronicles: MIA",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/11/Solstice-Chronicles-MIA-Packshot.jpg",
-    "Genre": "Action",
-    "Type": "All"
-},
-{
-    "title": "Auto Age: Standoff",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/auto-logo-bar-tobii-eye-tracking-Pack.jpg",
-    "Genre": "Action",
-    "Type": "All, Offer"
-},
-{
-    "title": "For Honor",
-    "Image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/09/ForH-Packshot.jpg",
-    "Genre": "Action",
-    "Type": "All"  
-}
-]
+    "games": [
+        {
+            "title": "Unknown Fate",  
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/Unknown-Fate-with-Tobii-Eye-Tracking-Packshot.jpg",
+            "genre": [ "Adventure",  "Indie"],
+            "type": ["All"]
+        },
+        {
+            "title": "Dying Light: Bad Blood",  
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/dlbb-tobii-eye-tracking-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]  
+        },
+        {
+            "title": "Shadow of athe Tomb Raider",  
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/Shadow-of-the-Tomb-Raider-Packshot.jpg",
+            "genre": ["Action", "Adventure"],
+            "type": ["All", "Offer"]
+        },
+        {
+            "title": "Farming Simulator 19",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/farmingsim19-tobii-eye-tracking-Pack.jpg",
+            "genre": ["Simulation"],
+            "type": ["All", "Coming Soon"]  
+        },
+        {
+            "title": "State of Mind",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/07/SOM-Tobii-Eye-Tracking-PAck.jpg",
+            "genre": ["Adventure"],
+            "type": ["All"]  
+        },
+        {
+            "title": "F1® 2018",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/08/F1-2018-Packshot.jpg",
+            "genre": ["Racing", "Simulation"],
+            "type": ["All", "Offer"]
+        
+        },
+        {
+            "title": "Mindball Play",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/07/MB-Tobii-Eye-Tracking-pack.jpg",
+            "genre": ["Indie", "Racing"],
+            "type": ["All"]
+        },
+        {
+            "title": "Q.U.B.E. 2",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/05/qube-2-packshot.jpg",
+            "genre":["Action", "Adventure", "Puzzle"],
+            "type": ["All"]
+        },
+        {
+            "title": "Bus Simulator 18",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/06/bus-simulator-2018-packshot.jpg",
+            "genre": ["Simulation"],
+            "type": ["All"]
+        
+        },
+        {
+            "title": "Overload",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/06/overload-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]
+        
+        },
+        {
+            "title": "Agony",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/05/agony-packshot.jpg",
+            "genre": ["Horror", "Survival"],
+            "type": ["All"]
+        },
+        {
+            "title": "Final Fantasy XV",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/ffxv-packshot.jpg",
+            "genre": ["Action", "Adventure", "Open World", "RPG"],
+            "type": ["All"]  
+        },
+        {
+            "title": "Hitman",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/10/Hitman-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]
+        
+        },
+        {
+            "title": "Solstice Chronicles: MIA",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/11/Solstice-Chronicles-MIA-Packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All"]
+        },
+        {
+            "title": "Auto Age: Standoff",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/auto-logo-bar-tobii-eye-tracking-Pack.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Offer"]
+        },
+        {
+            "title": "For Honor",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/09/ForH-Packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All"] 
+        }
+    ]
 }
