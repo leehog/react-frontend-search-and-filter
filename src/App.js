@@ -7,6 +7,7 @@ import { Paginate, evalPageCount } from './Pagination';
 import logo from './assets/logo.png'
 import search from './assets/search.png'
 import downArrow from './assets/arrowdown.png'
+import { ENGINE_METHOD_ALL } from 'constants';
 
 
 type Game = {
@@ -120,6 +121,17 @@ class App extends Component<null, State> {
     )
   }
 
+  genreListButton = (val: string) => {
+    return(
+    <li onClick={() => this.handleGenreChange(val)} className={this.state.filter.genre === val ? 'active-link' : ''}>{val}</li>
+    )
+  }
+
+  typeListButton = (val: string) => {
+    return(
+    <li onClick={() => this.handleTypeChange(val)} className={this.state.filter.type === val ? 'active-link' : ''}>{val}</li>    )
+  }
+
   handleSearch = (val: string) => {
     this.setState({ filter: { ...this.state.filter, searchValue: val }, currentPaginate: 1 })
   }
@@ -141,6 +153,10 @@ class App extends Component<null, State> {
     const filteredgameList = filterByType(filterByGenre(filteredSearch(this.state.gameList, this.state.filter.searchValue), this.state.filter.genre), this.state.filter.type)
     const currentItems = Paginate({items: filteredgameList, currentPage: currentPaginate})
     const pageCount = evalPageCount(filteredgameList);
+
+    const genreList = ["All", "Top Games", "Action", "Adventure", "Drama", "Indie", "Mystery", "RPG", "Simulation", "Sports"]
+    const typeList = ["All", "Offer", "Free"]
+
     return (
       <div className="App">
         <div className="header row">
@@ -164,25 +180,14 @@ class App extends Component<null, State> {
         <div className={this.state.genreActive ? 'open': 'closed'}>
           <button className="dropdown filter-type" onClick={() => this.setState({ genreActive: !this.state.genreActive })}>Genres<img src={downArrow} alt="down-arrow" className="down-arrow"/></button>
           <ul className="filters">
-              <li onClick={() => this.handleGenreChange('All')} className={this.state.filter.genre === 'All' ? 'active-link' : ''}>All</li>
-              <li onClick={() => this.handleGenreChange('Top Games')} className={this.state.filter.genre === 'Top Games' ? 'active-link' : ''}>Top Games</li>
-              <li onClick={() => this.handleGenreChange('Action')} className={this.state.filter.genre === 'Action' ? 'active-link' : ''}>Action</li>
-              <li onClick={() => this.handleGenreChange('Adventure')} className={this.state.filter.genre === 'Adventure' ? 'active-link' : ''}>Adventure</li>
-              <li onClick={() => this.handleGenreChange('Drama')} className={this.state.filter.genre === 'Drama' ? 'active-link' : ''}>Drama</li>
-              <li onClick={() => this.handleGenreChange('Indie')} className={this.state.filter.genre === 'Indie' ? 'active-link' : ''}>Indie</li>
-              <li onClick={() => this.handleGenreChange('Mystery')} className={this.state.filter.genre === 'Mystery' ? 'active-link' : ''}>Mystery</li>
-              <li onClick={() => this.handleGenreChange('RPG')} className={this.state.filter.genre === 'RPG' ? 'active-link' : ''}>RPG</li>
-              <li onClick={() => this.handleGenreChange('Simulation')} className={this.state.filter.genre === 'Simulation' ? 'active-link' : ''}>Simulation</li>
-              <li onClick={() => this.handleGenreChange('Sports')} className={this.state.filter.genre === 'Sports' ? 'active-link' : ''}>Sports</li>
+              {genreList.map((genre) => this.genreListButton(genre))}
           </ul>
         </div>
         <div className={this.state.typeActive ? 'open': 'closed'}>
           <button className="dropdown filter-type" onClick={() => this.setState({ typeActive: !this.state.typeActive })}>Type<img src={downArrow} alt="down-arrow" className="down-arrow"/></button>
           <ul className="filters">
-            <li onClick={() => this.handleTypeChange('All')} className={this.state.filter.type === 'All' ? 'active-link' : ''}>All</li>
-            <li onClick={() => this.handleTypeChange('Offer')} className={this.state.filter.type === 'Offers' ? 'active-link' : ''}>Offers</li>
-            <li onClick={() => this.handleTypeChange('Free')} className={this.state.filter.type === 'Free' ? 'active-link' : ''}>Free</li>
-          </ul>
+             {typeList.map((type) => this.typeListButton(type))}       
+         </ul>
         </div>
         </div>
         <div className="col-md-10">
