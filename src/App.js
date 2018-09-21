@@ -109,7 +109,6 @@ class App extends Component<null, State> {
         }
       })
     }
-    console.log(newArray)
 
     return newArray;
   }
@@ -135,18 +134,14 @@ class App extends Component<null, State> {
   }
   handlePageChange = (page: number) => {
     this.setState({ currentPaginate: page })
-    console.log(page)
   }  
 
   render() {
     const { filteredSearch, filterByGenre, filterByType } = this;
     const { gamelist, currentPaginate } = this.state;
     const filteredGameList = filterByType(filterByGenre(filteredSearch(this.state.gamelist, this.state.filter.searchValue), this.state.filter.genre), this.state.filter.type)
-    console.log(filteredGameList)
-    console.log(currentPaginate)
     const currentItems = Paginate({items: filteredGameList, currentPage: currentPaginate})
     const pageCount = evalPageCount(filteredGameList);
-    console.log(pageCount)
     return (
       <div className="App">
         <div className="header row">

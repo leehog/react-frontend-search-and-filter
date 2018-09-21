@@ -26,8 +26,6 @@ export const Paginate = (props: Props): Items => {
 export const evalPageCount = (array: Array<*>, itemsPerPage?: number) => {
     const maxItems = itemsPerPage ? itemsPerPage : defaultItemsPerPage;
     const pageCount = parseInt((array.length / maxItems) - 0.5);
-    console.log(array.length / maxItems)
-    console.log(pageCount)
     let pageCountArray = [];
     for(let i = 0; i <= pageCount; i++) {
         pageCountArray = [...pageCountArray, (i + 1)]
