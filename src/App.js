@@ -39,7 +39,7 @@ type State = {
 
 class App extends Component<null, State> {
   constructor() {
-    super();
+    super()
     this.state = {
       gameList: [],
       filter: {
@@ -54,13 +54,13 @@ class App extends Component<null, State> {
   }
 
   componentDidMount() {
-    this.loadData();
+    this.loadData()
   }
 
   loadData = () => {
     const data = axios.get('http://localhost:3000/data.php')
     .then(response => {
-      this.setState({ gameList: response.data.games });
+      this.setState({ gameList: response.data.games })
     })
     .catch ((error) => {
       console.log(error)
@@ -68,41 +68,41 @@ class App extends Component<null, State> {
   }
 
   filteredSearch(array: Array<Game>, value: string): Array<Game> {
-    let newArray = [];
+    let newArray = []
     array.forEach((item) => {
       if(item.title.toLowerCase().indexOf(value) !== -1)
         newArray = [...newArray, item]
     })
-    return newArray;
+    return newArray
   }
 
   filterArrayOfObjectsByValue(array: Array<string>, value: string) {
-    let valueFound = false;
+    let valueFound = false
     array.forEach((item) => {
       if(item == value) {
-        valueFound = true;
+        valueFound = true
       }
     })
     return valueFound
   }
 
   filterByGenre = (array: Array<Game>, genre: string) => {
-    let newArray = [...array];
+    let newArray = [...array]
     if(genre !== "All") {
-      newArray = [];
+      newArray = []
       array.forEach((game) => {
         if(this.filterArrayOfObjectsByValue(game.genre, genre)) {
             newArray = [...newArray, game]
         }
       })
     }
-    return newArray;
+    return newArray
   }
 
   filterByType = (array: Array<Game>, type: string) => {
-    let newArray = [...array];
+    let newArray = [...array]
     if(type !== "All") {
-      newArray = [];
+      newArray = []
       array.forEach((game) => {
         if(this.filterArrayOfObjectsByValue(game.type, type)) {
             newArray = [...newArray, game]
@@ -110,7 +110,7 @@ class App extends Component<null, State> {
       })
     }
 
-    return newArray;
+    return newArray
   }
 
   PaginateButton = (page: number) => {
@@ -123,13 +123,22 @@ class App extends Component<null, State> {
 
   genreListButton = (val: string) => {
     return(
-    <li onClick={() => this.handleGenreChange(val)} className={this.state.filter.genre === val ? 'active-link' : ''}>{val}</li>
+    <li 
+       onClick={() => this.handleGenreChange(val)}
+       className={this.state.filter.genre === val ? 'active-link' : ''}>
+       {val}
+    </li>
     )
   }
 
   typeListButton = (val: string) => {
     return(
-    <li onClick={() => this.handleTypeChange(val)} className={this.state.filter.type === val ? 'active-link' : ''}>{val}</li>    )
+    <li 
+        onClick={() => this.handleTypeChange(val)}
+        className={this.state.filter.type === val ? 'active-link' : ''}>
+        {val}
+    </li>    
+  )
   }
 
   handleSearch = (val: string) => {
@@ -148,11 +157,11 @@ class App extends Component<null, State> {
   }  
 
   render() {
-    const { filteredSearch, filterByGenre, filterByType } = this;
-    const { gameList, currentPaginate } = this.state;
+    const { filteredSearch, filterByGenre, filterByType } = this
+    const { gameList, currentPaginate } = this.state
     const filteredgameList = filterByType(filterByGenre(filteredSearch(this.state.gameList, this.state.filter.searchValue), this.state.filter.genre), this.state.filter.type)
     const currentItems = Paginate({items: filteredgameList, currentPage: currentPaginate})
-    const pageCount = evalPageCount(filteredgameList);
+    const pageCount = evalPageCount(filteredgameList)
 
     const genreList = ["All", "Top Games", "Action", "Adventure", "Drama", "Indie", "Mystery", "RPG", "Simulation", "Sports"]
     const typeList = ["All", "Offer", "Free"]
@@ -178,13 +187,21 @@ class App extends Component<null, State> {
           <div className="row no-margin container-fluid">  
           <div className="col-md-2">
         <div className={this.state.genreActive ? 'open': 'closed'}>
-          <button className="dropdown filter-type" onClick={() => this.setState({ genreActive: !this.state.genreActive })}>Genres<img src={downArrow} alt="down-arrow" className="down-arrow"/></button>
+          <button 
+              className="dropdown filter-type"
+              onClick={() => this.setState({ genreActive: !this.state.genreActive })}>
+              Genres<img src={downArrow} alt="down-arrow" className="down-arrow"/>
+          </button>
           <ul className="filters">
               {genreList.map((genre) => this.genreListButton(genre))}
           </ul>
         </div>
         <div className={this.state.typeActive ? 'open': 'closed'}>
-          <button className="dropdown filter-type" onClick={() => this.setState({ typeActive: !this.state.typeActive })}>Type<img src={downArrow} alt="down-arrow" className="down-arrow"/></button>
+          <button 
+              className="dropdown filter-type"
+              onClick={() => this.setState({ typeActive: !this.state.typeActive })}>
+              Type<img src={downArrow} alt="down-arrow" className="down-arrow"/>
+          </button>
           <ul className="filters">
              {typeList.map((type) => this.typeListButton(type))}       
          </ul>
@@ -192,8 +209,17 @@ class App extends Component<null, State> {
         </div>
         <div className="col-md-10">
         <div className="search-wrap">
-        <img src={search} alt="search-logo" className="search-logo"/>
-        <input placeholder="Search for your favorite game" onChange={(e) => this.handleSearch(e.currentTarget.value)} value={this.state.filter.searchValue} className="form-control searchbar"/>
+        <img 
+          src={search} 
+          alt="search-logo" 
+          className="search-logo"
+        />
+        <input 
+              placeholder="Search for your favorite game"
+              onChange={(e) => this.handleSearch(e.currentTarget.value)}
+              value={this.state.filter.searchValue} 
+              className="form-control searchbar"
+          />
         </div>  
           {currentItems.length > 0 ? currentItems.map((item) => <GameCard key={uuid()} game={item} />) : <h1 className="no-content">No games in your category/search..</h1>}
         </div>
@@ -204,8 +230,8 @@ class App extends Component<null, State> {
          </ul>
         </nav>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
