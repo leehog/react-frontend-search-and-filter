@@ -3,5 +3,4 @@
    $data = file_get_contents("games.json");
    
    print_r($data)
-
 ?>

@@ -8,7 +8,6 @@ import logo from './assets/logo.png'
 import search from './assets/search.png'
 import downArrow from './assets/arrowdown.png'
 
-import './App.css';
 
 type Game = {
   title: string,
@@ -25,7 +24,7 @@ const GameCard = (props: {game: Game}) => {
 }
 
 type State = {
-  gamelist: Array<Game>,
+  gameList: Array<Game>,
   filter: {
     searchValue: string,
     genre: string,
@@ -41,7 +40,7 @@ class App extends Component<null, State> {
   constructor() {
     super();
     this.state = {
-      gamelist: [],
+      gameList: [],
       filter: {
         searchValue: "",
         genre: "All",
@@ -60,7 +59,7 @@ class App extends Component<null, State> {
   loadData = () => {
     const data = axios.get('http://localhost:3000/data.php')
     .then(response => {
-      this.setState({ gamelist: response.data.games });
+      this.setState({ gameList: response.data.games });
     })
     .catch ((error) => {
       console.log(error)
@@ -138,10 +137,10 @@ class App extends Component<null, State> {
 
   render() {
     const { filteredSearch, filterByGenre, filterByType } = this;
-    const { gamelist, currentPaginate } = this.state;
-    const filteredGameList = filterByType(filterByGenre(filteredSearch(this.state.gamelist, this.state.filter.searchValue), this.state.filter.genre), this.state.filter.type)
-    const currentItems = Paginate({items: filteredGameList, currentPage: currentPaginate})
-    const pageCount = evalPageCount(filteredGameList);
+    const { gameList, currentPaginate } = this.state;
+    const filteredgameList = filterByType(filterByGenre(filteredSearch(this.state.gameList, this.state.filter.searchValue), this.state.filter.genre), this.state.filter.type)
+    const currentItems = Paginate({items: filteredgameList, currentPage: currentPaginate})
+    const pageCount = evalPageCount(filteredgameList);
     return (
       <div className="App">
         <div className="header row">
