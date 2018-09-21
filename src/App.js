@@ -117,7 +117,7 @@ class App extends Component<null, State> {
   PaginateButton = (page: number) => {
     return(
       <div>
-         <li class="page-item pagination-btn"><a class="page-link" onClick={() => this.handlePageChange(page)}>{page}</a></li>
+         <li className="page-item pagination-btn"><a className="page-link" onClick={() => this.handlePageChange(page)}>{page}</a></li>
       </div>
     )
   }

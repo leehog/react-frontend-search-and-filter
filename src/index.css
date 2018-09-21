@@ -96,4 +96,7 @@ body {
     .login-btn {
         display: none;
     }
+    .header-col {
+        padding-top: 15px !important;
+    }
   }

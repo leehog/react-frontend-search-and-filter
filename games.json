@@ -205,6 +205,94 @@
             "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/09/ForH-Packshot.jpg",
             "genre": ["Action"],
             "type": ["All"] 
+        },
+        {
+            "title": "Overload",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/06/overload-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]
+        
+        },
+        {
+            "title": "Agony",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/05/agony-packshot.jpg",
+            "genre": ["Horror", "Survival"],
+            "type": ["All"]
+        },
+        {
+            "title": "Final Fantasy XV",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/ffxv-packshot.jpg",
+            "genre": ["Action", "Adventure", "Open World", "RPG"],
+            "type": ["All"]  
+        },
+        {
+            "title": "Hitman",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/10/Hitman-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]
+        
+        },
+        {
+            "title": "Solstice Chronicles: MIA",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/11/Solstice-Chronicles-MIA-Packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All"]
+        },
+        {
+            "title": "Auto Age: Standoff",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/auto-logo-bar-tobii-eye-tracking-Pack.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Offer"]
+        },
+        {
+            "title": "For Honor",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/09/ForH-Packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All"] 
+        },
+        {
+            "title": "Overload",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/06/overload-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]
+        
+        },
+        {
+            "title": "Agony",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/05/agony-packshot.jpg",
+            "genre": ["Horror", "Survival"],
+            "type": ["All"]
+        },
+        {
+            "title": "Final Fantasy XV",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/ffxv-packshot.jpg",
+            "genre": ["Action", "Adventure", "Open World", "RPG"],
+            "type": ["All"]  
+        },
+        {
+            "title": "Hitman",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/10/Hitman-packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Coming Soon"]
+        
+        },
+        {
+            "title": "Solstice Chronicles: MIA",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/11/Solstice-Chronicles-MIA-Packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All"]
+        },
+        {
+            "title": "Auto Age: Standoff",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2018/03/auto-logo-bar-tobii-eye-tracking-Pack.jpg",
+            "genre": ["Action"],
+            "type": ["All", "Offer"]
+        },
+        {
+            "title": "For Honor",
+            "image": "https://cdn-gaming.tobii.com/wp-content/uploads/2017/09/ForH-Packshot.jpg",
+            "genre": ["Action"],
+            "type": ["All"] 
         }
     ]
 }
